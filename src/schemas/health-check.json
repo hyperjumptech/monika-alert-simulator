@@ -1,0 +1,24 @@
+{
+  "schema": {
+    "description": "Health Check",
+    "tags": ["Utilities"],
+    "summary": "Health Check",
+    "response": {
+      "200": {
+        "description": "Successful response",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

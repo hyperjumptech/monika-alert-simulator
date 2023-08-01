@@ -1,0 +1,53 @@
+{
+  "schema": {
+    "description": "Returns user ID. Will return 404 if not 1001",
+    "tags": ["Request Chaining"],
+    "summary": "Returns user ID",
+    "params": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "User ID (Use 1001 for status code 200)"
+        }
+      }
+    },
+    "response": {
+      "200": {
+        "description": "Successful response",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "uid": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Not found",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

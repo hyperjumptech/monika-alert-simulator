@@ -1,0 +1,51 @@
+{
+  "name": "monika-alert-simulator",
+  "version": "1.0.0",
+  "description": "A dummy server for simulate Monika incident or recovery alert ",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "format:check": "prettier --config .prettierrc 'src/**/*.ts' --check",
+    "lint": "eslint . --ext .ts",
+    "start": "npm run build && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperjumptech/monika-alert-simulator.git"
+  },
+  "keywords": [
+    "monika",
+    "incident",
+    "recovery"
+  ],
+  "authors": [
+    "Nico Prananta <nico@hyperjump.tech>",
+    "Denny Pradipta <denny@hyperjump.tech>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyperjumptech/monika-alert-simulator/issues"
+  },
+  "homepage": "https://github.com/hyperjumptech/monika-alert-simulator#readme",
+  "volta": {
+    "node": "18.17.0"
+  },
+  "dependencies": {
+    "@fastify/swagger": "^8.8.0",
+    "@fastify/swagger-ui": "^1.9.3",
+    "fastify": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
+  }
+}

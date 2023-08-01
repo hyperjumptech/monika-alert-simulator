@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Swagger/OpenAPI documentation for the API routes.
+servers:
+  - url: http://localhost:3000 # Update this URL based on your actual server address.
+paths:
+  /:
+    get:
+      summary: Get Health Check
+      description: Returns a health check response.
+      responses:
+        '200':
+          description: Successful response
+  /api/status:
+    get:
+      summary: Get Status Simulator
+      description: Returns a status simulator response.
+      parameters:
+        - name: threshold
+          in: query
+          required: true
+          description: The incident or recovery threshold.
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: Successful response
+        '500':
+          description: Successful response
+  /api/delay:
+    get:
+      summary: Get Delay Simulator
+      description: Returns a delay simulator response.
+      parameters:
+        - name: threshold
+          in: query
+          required: true
+          description: The incident or recovery threshold.
+          schema:
+            type: integer
+            minimum: 1
+        - name: delay
+          in: query
+          required: true
+          description: The delay in milliseconds.
+          schema:
+            type: integer
+            minimum: 0
+      responses:
+        '200':
+          description: Successful response
+  /api/body:
+    get:
+      summary: Get Body Simulator
+      description: Returns an OK or Error body simulator response.
+      parameters:
+        - name: threshold
+          in: query
+          required: true
+          description: The incident or recovery threshold.
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: Successful response
+  /api/login:
+    post:
+      summary: Post Login Simulator
+      description: Returns a login simulator response.
+      parameters:
+        - name: threshold
+          in: query
+          required: true
+          description: The incident or recovery threshold.
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: Successful response
+  /api/user/{uid}:
+    get:
+      summary: Get User by ID
+      description: Returns a user by their ID.
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: The ID of the user to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: User not found

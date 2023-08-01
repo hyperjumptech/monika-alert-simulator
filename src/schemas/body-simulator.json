@@ -1,0 +1,27 @@
+{
+  "schema": {
+    "description": "Returns either `{'status': 'ok'}` or `{'status': 'error'}` response if it passes the threshold",
+    "tags": ["Basic"],
+    "summary": "Returns a body",
+    "querystring": {
+      "type": "object",
+      "properties": {
+        "threshold": {
+          "type": "integer",
+          "description": "Incident or recovery threshold (default is 3)"
+        }
+      }
+    },
+    "response": {
+      "200": {
+        "description": "Successful response",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

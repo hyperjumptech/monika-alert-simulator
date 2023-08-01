@@ -1,0 +1,37 @@
+{
+  "schema": {
+    "description": "Returns delayed response if it passes the threshold. The delay is configurable through the query parameter",
+    "tags": ["Basic"],
+    "summary": "Returns delayed response",
+    "querystring": {
+      "type": "object",
+      "properties": {
+        "threshold": {
+          "type": "integer",
+          "description": "Incident or recovery threshold (default is 3)"
+        },
+        "delay": {
+          "type": "integer",
+          "description": "Delay time in milliseconds (default is 1000)"
+        }
+      }
+    },
+    "response": {
+      "200": {
+        "description": "Successful response",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}
