@@ -1,0 +1,30 @@
+notifications:
+  - id: unique-id-desktop
+    type: desktop
+probes:
+  - id: "1"
+    name: Status
+    description: Check status
+    interval: 1
+    incidentThreshold: 3
+    recoveryThreshold: 3
+    requests:
+      - method: GET
+        timeout: 10000
+        url: http://localhost:8000/api/status
+    alerts:
+      - assertion: response.status != 200
+        message: Status not 200
+  - id: "2"
+    name: Delay
+    description: Check delay
+    interval: 1
+    incidentThreshold: 3
+    recoveryThreshold: 3
+    requests:
+      - method: GET
+        timeout: 10000
+        url: http://localhost:8000/api/delay
+    alerts:
+      - assertion: response.time > 800
+        message: Probe not accessible

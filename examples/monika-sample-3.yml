@@ -1,0 +1,26 @@
+notifications:
+  - id: unique-id-desktop
+    type: desktop
+probes:
+  - id: "1"
+    name: Chaining
+    description: Check chaining
+    interval: 1
+    incidentThreshold: 3
+    recoveryThreshold: 3
+    requests:
+      - method: POST
+        timeout: 10000
+        url: http://localhost:8000/api/login
+        headers:
+          Content-Type: application/json
+        body: {}
+        alerts:
+          - assertion: response.status != 200
+            message: Status not 200
+      - method: GET
+        timeout: 10000
+        url: http://localhost:8000/api/user/{{ responses.[0].body.data.uid }}
+        alerts:
+          - assertion: response.status != 200
+            message: Status not 200

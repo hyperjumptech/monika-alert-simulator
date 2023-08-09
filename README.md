@@ -36,6 +36,18 @@ npm start
 
 After you run the simulator, you can access the Swagger API Documentations by visiting http://localhost:8000/docs
 
+## Examples
+
+To test how the API works, there are Monika configuration examples in the `examples` folder.
+
+1. Testing the delayed response: `examples/monika-sample-1-delay.yml`
+2. Testing the incorrect status code: `examples/monika-sample-1-status.yml`
+3. Testing multiple probes: `examples/monika-sample-2.yml`
+4. Testing the chaining request feature: `examples/monika-sample-3.yml`
+5. Testing the incorrect response body: `examples/monika-sample-4-error.yml`
+
+You can run the configurations above by running `monika -c <path_to_monika_configuration`
+
 ## License
 
 Monika Alert Simulator is licensed under MIT.

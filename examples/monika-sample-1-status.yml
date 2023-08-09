@@ -1,0 +1,17 @@
+notifications:
+  - id: unique-id-desktop
+    type: desktop
+probes:
+  - id: "1"
+    name: Localhost
+    description: Check status
+    interval: 1
+    incidentThreshold: 3
+    recoveryThreshold: 3
+    requests:
+      - method: GET
+        timeout: 10000
+        url: http://localhost:8000/api/status
+    alerts:
+      - assertion: response.status != 200
+        message: Status is not 200, please check
