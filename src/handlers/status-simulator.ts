@@ -36,5 +36,5 @@ export async function getStatusSimulator(
 
   fail++;
   request.log.info('Status code simulator returning status 500');
-  return reply.status(500).send({ success: false, message: 'Fail', data: {} });
+  return reply.status(500).send('fail');
 }
