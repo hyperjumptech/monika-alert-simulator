@@ -1,6 +1,7 @@
 import Fastify from 'fastify';
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
+import config from './config';
 
 import { getHealthCheck } from './handlers/health-check';
 import { getStatusSimulator } from './handlers/status-simulator';
@@ -14,6 +15,9 @@ import * as DelaySimulatorSchema from './schemas/delay-simulator.json';
 import * as BodySimulatorSchema from './schemas/body-simulator.json';
 import * as LoginSimulatorSchema from './schemas/login-simulator.json';
 import * as IdentitySimulatorSchema from './schemas/identity-simulator.json';
+
+// Get environment variables
+const { port, host } = config;
 
 // Initiate Fastify
 const fastify = Fastify({
@@ -65,7 +69,7 @@ fastify.register(
   try {
     fastify.log.info('Monika Alert Simulator is running...');
     await fastify.ready();
-    await fastify.listen({ port: 8000 });
+    await fastify.listen({ port, host });
     fastify.swagger();
   } catch (err) {
     fastify.log.error(err);
